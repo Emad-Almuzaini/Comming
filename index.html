@@ -1,105 +1,742 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emad | قريباً</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --accent-color: #38bdf8;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
-            color: var(--text-main);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            overflow: hidden;
-        }
-
-        .card {
-            text-align: center;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .logo-circle {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--accent-color), #818cf8);
-            border-radius: 50%;
-            margin: 0 auto 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--bg-color);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin: 0 0 16px;
-            background: linear-gradient(to right, #fff, var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-dim);
-            margin-bottom: 24px;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 100px;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* أنيميشن بسيط */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .card { animation: fadeIn 1s ease-out; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière — Luxury Accessories | إكسسوارات فاخرة</title>
+  <meta name="description" content="Lumière — handpicked luxury jewelry & accessories. Sterling silver necklaces, earrings, rings, bracelets. تسوق أرقى الإكسسوارات والمجوهرات." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="style.css" /> -->
 </head>
+<style>
+  /* ══════════════════════════════════════
+   LUMIÈRE v3 — style.css
+   ══════════════════════════════════════ */
+
+/* ── Variables ───────────────────────── */
+:root {
+  --gold:          #c9a96e;
+  --gold-light:    #e2c992;
+  --gold-dark:     #a07840;
+
+  --bg:            #faf8f5;
+  --bg-card:       #ffffff;
+  --bg-secondary:  #f3ede4;
+  --bg-accent:     #f0e8d8;
+
+  --text:          #1a1410;
+  --text-muted:    #7a6e62;
+  --text-faded:    rgba(26,20,16,.85);
+
+  --border:        rgba(180,145,90,.30);
+  --header-bg:     rgba(250,248,245,.80);
+
+  --shadow-sm:     0 1px 3px rgba(100,70,30,.07);
+  --shadow-xl:     0 12px 40px rgba(100,70,30,.18);
+  --radius:        16px;
+  --tr:            .35s cubic-bezier(.4,0,.2,1);
+}
+
+[data-theme="dark"] {
+  --bg:            #100e0b;
+  --bg-card:       #1c1813;
+  --bg-secondary:  #18150f;
+  --bg-accent:     #221e16;
+  --text:          #f0e8d8;
+  --text-muted:    #9e8e78;
+  --text-faded:    rgba(240,232,216,.85);
+  --border:        rgba(180,145,90,.20);
+  --header-bg:     rgba(16,14,11,.85);
+  --shadow-sm:     0 1px 3px rgba(0,0,0,.35);
+  --shadow-xl:     0 12px 40px rgba(0,0,0,.55);
+}
+
+/* ── Reset ───────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;transition:background var(--tr),color var(--tr)}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer}
+
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* ── Gold helpers ─────────────────────── */
+.gold-text{
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-light),var(--gold-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.gold-border{border:1px solid var(--border)}
+
+/* ══ HEADER ══════════════════════════════ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:var(--header-bg);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  transition:background var(--tr),box-shadow var(--tr);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+
+/* Logo */
+.logo{
+  font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;
+  letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-light),var(--gold-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* Desktop nav */
+.main-nav{display:flex;align-items:center;gap:32px}
+.main-nav a{
+  font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-muted);transition:color var(--tr);position:relative;
+}
+.main-nav a::after{
+  content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;
+  background:var(--gold);transition:width var(--tr);
+}
+.main-nav a:hover{color:var(--text)}
+.main-nav a:hover::after{width:100%}
+
+/* Actions */
+.header-actions{display:flex;align-items:center;gap:8px}
+
+.icon-btn{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--border);background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text);transition:background var(--tr);
+}
+.icon-btn svg{width:16px;height:16px}
+.icon-btn:hover{background:var(--bg-accent)}
+
+.lang-btn{
+  border:1px solid var(--border);border-radius:50px;
+  padding:6px 16px;font-size:13px;background:transparent;
+  color:var(--text);transition:background var(--tr);
+}
+.lang-btn:hover{background:var(--bg-accent)}
+
+.menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.menu-btn span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:var(--tr)}
+
+/* Mobile nav */
+.mobile-nav{display:none;flex-direction:column;padding:12px 24px 20px;gap:14px;border-top:1px solid var(--border)}
+.mobile-nav.open{display:flex}
+.mobile-link{font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted)}
+
+/* ══ HERO ════════════════════════════════ */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);animation:heroZoom 14s ease-out forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.50) 55%,var(--bg) 100%)}
+
+.hero-content{
+  position:relative;z-index:2;text-align:center;color:#fff;
+  padding-top:128px;padding-bottom:128px;
+  animation:fadeUp .9s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-eyebrow{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#dfc48a;margin-bottom:20px;animation:fadeUp .9s .15s ease both}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7.5vw,5.5rem);font-weight:600;line-height:1.1;margin-bottom:20px;animation:fadeUp .9s .28s ease both}
+.hero-sub{max-width:520px;margin:0 auto 36px;font-size:1rem;color:rgba(255,255,255,.82);font-weight:300;animation:fadeUp .9s .42s ease both}
+
+.hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;animation:fadeUp .9s .55s ease both}
+.btn-primary{display:inline-block;padding:13px 32px;border-radius:50px;background:var(--gold);color:#1a1410;font-weight:500;font-size:14px;letter-spacing:.04em;transition:background var(--tr),transform .2s}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{display:inline-block;padding:13px 32px;border-radius:50px;border:1px solid rgba(255,255,255,.40);color:#fff;font-size:14px;letter-spacing:.04em;transition:background var(--tr),transform .2s}
+.btn-outline:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+
+.scroll-indicator{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2}
+.scroll-indicator span{display:block;width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,.55),transparent);animation:scrollLine 2.2s ease-in-out infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ══ PRODUCTS ════════════════════════════ */
+.products-section{padding:96px 0}
+
+.section-head{text-align:center;margin-bottom:56px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;margin-bottom:10px}
+.section-title.centered{text-align:center}
+.section-sub{color:var(--text-muted);font-size:15px;font-weight:300}
+
+/* Grid — 3 columns like original */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+
+/* Card */
+.product-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+  transition:box-shadow var(--tr),transform var(--tr);
+}
+.product-card:hover{box-shadow:var(--shadow-xl);transform:translateY(-3px)}
+
+.product-img-wrap{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--bg-secondary)}
+.product-img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--tr)}
+.product-card:hover .product-img{transform:scale(1.06)}
+
+/* Card body */
+.product-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;line-height:1.35;margin-bottom:14px}
+
+/* Details section */
+.product-details-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);margin-bottom:8px}
+.product-details{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.product-details li{display:flex;gap:8px;font-size:13.5px;color:var(--text-faded);line-height:1.5}
+.detail-dot{color:var(--gold);flex-shrink:0;margin-top:2px}
+
+/* Price row */
+.product-footer{margin-top:auto;display:flex;align-items:center;justify-content:flex-end}
+.product-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold-light),var(--gold-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.mb-details{margin-bottom:18px;flex:1}
+
+/* ── Pagination ───────────────────────── */
+.pagination{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:48px}
+.page-btn{
+  border:1px solid var(--border);border-radius:50px;
+  padding:8px 20px;font-size:14px;background:transparent;
+  color:var(--text);transition:background var(--tr),opacity var(--tr);
+}
+.page-btn:hover:not(:disabled){background:var(--bg-accent)}
+.page-btn:disabled{opacity:.40;cursor:not-allowed}
+.page-info{font-size:14px;color:var(--text-muted)}
+
+/* ══ ABOUT ═══════════════════════════════ */
+.about-section{background:var(--bg-secondary);padding:96px 0}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;text-align:center;transition:box-shadow var(--tr),transform var(--tr)}
+.feature-card:hover{box-shadow:var(--shadow-xl);transform:translateY(-3px)}
+.feature-icon{width:48px;height:48px;border-radius:50%;background:var(--bg-accent);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-family:'Cormorant Garamond',serif;color:var(--gold)}
+.feature-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:8px}
+.feature-card p{font-size:13.5px;color:var(--text-muted);font-weight:300}
+
+/* ══ FOOTER ══════════════════════════════ */
+.site-footer{border-top:1px solid var(--border)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;padding:28px 24px}
+.footer-copy{font-size:13px;color:var(--text-muted)}
+
+/* ══ SCROLL REVEAL ═══════════════════════ */
+.card-hidden{opacity:0;transform:translateY(26px)}
+.card-visible{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
+
+/* ══ RTL ══════════════════════════════════ */
+[dir="rtl"] .main-nav a::after{left:auto;right:0}
+
+/* ══ RESPONSIVE ══════════════════════════ */
+@media(max-width:1024px){
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+}
+@media(max-width:768px){
+  .main-nav{display:none}
+  .menu-btn{display:flex}
+  .features-grid{grid-template-columns:1fr;gap:16px}
+  .footer-inner{flex-direction:column;gap:10px;text-align:center}
+  .hero-title{font-size:clamp(2.2rem,9vw,3.5rem)}
+  .header-inner{padding:14px 24px}
+}
+@media(max-width:540px){
+  .products-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-primary,.btn-outline{width:100%;max-width:260px;text-align:center}
+}
+
+</style>
 <body>
 
-    <div class="card">
-        <div class="logo-circle">E</div>
-        <h1>عماد</h1>
-        <p class="description">
-            مرحباً بك، أنا مطور ويب أعمل حالياً على بناء معرض أعمالي وتطوير منصة متكاملة لاستعراض أحدث المشاريع التقنية والبرمجية.
-        </p>
-        <div class="status-badge">الموقع قيد التطوير حالياً</div>
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Lumière</a>
+      <nav class="main-nav">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="lang-btn" id="lang-toggle">العربية</button>
+        <button class="menu-btn" id="menu-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="#products" class="mobile-link">Products</a>
+      <a href="#about"    class="mobile-link">About</a>
+      <a href="#contact"  class="mobile-link">Contact</a>
+    </div>
+  </header>
 
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80&auto=format&fit=crop" alt="" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <p class="hero-eyebrow">Curated Luxury</p>
+      <h1 class="hero-title">Accessories that tell your story</h1>
+      <p class="hero-sub">A handpicked edit of fine 925 sterling silver jewelry — pearls, zircons, gold-plated finishes.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Shop Collection</a>
+        <a href="#about"    class="btn-outline">Discover</a>
+      </div>
+    </div>
+    <div class="scroll-indicator"><span></span></div>
+  </section>
+
+  <!-- ═══ PRODUCTS ═══ -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">The Collection</h2>
+        <p class="section-sub">Hand-selected pieces.</p>
+      </div>
+
+      <!-- PRODUCTS GRID — rendered by JS -->
+      <div class="products-grid" id="products-grid"></div>
+
+      <!-- PAGINATION -->
+      <div class="pagination" id="pagination">
+        <button id="btn-prev" class="page-btn" disabled>Previous</button>
+        <span class="page-info" id="page-info">Page 1 of 3</span>
+        <button id="btn-next" class="page-btn">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title centered">Why Lumière</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">★</div>
+          <h3>Authentic</h3>
+          <p>Genuine 925 sterling silver and natural pearls.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">★</div>
+          <h3>Worldwide</h3>
+          <p>Fast shipping to your door.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">★</div>
+          <h3>Guaranteed</h3>
+          <p>Quality guarantee on every order.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-inner">
+      <span class="logo">Lumière</span>
+      <span class="footer-copy">© 2026 Lumière. All rights reserved.</span>
+    </div>
+</footer>
+<script>
+  /* ══════════════════════════════════════
+   LUMIÈRE v3 — script.js
+   ══════════════════════════════════════ */
+
+/* ── All 18 products ─────────────────── */
+const PRODUCTS = [
+  {
+    img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80&auto=format&fit=crop',
+    name: 'Single Shell Pearl Pendant Necklace — 925 Sterling Silver',
+    details: [
+      'Material: 925 sterling silver',
+      'Stone: natural shell pearl',
+      'Style: dainty single pendant',
+      'Hypoallergenic, nickel-free'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80&auto=format&fit=crop',
+    name: 'Korean 925 Silver Freshwater Pearl Bracelet',
+    details: [
+      'Material: 925 sterling silver',
+      'Stone: natural freshwater pearls',
+      'Style: Korean minimalist',
+      'Adjustable chain length'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80&auto=format&fit=crop',
+    name: 'S925 V-Shape Half Pearl Half Zircon Pendant Necklace',
+    details: [
+      'Material: S925 sterling silver',
+      'Stones: pearl + AAA cubic zirconia',
+      'Shape: elegant V pendant',
+      'Anti-tarnish finish'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80&auto=format&fit=crop',
+    name: '925 Silver Princess Cut Zirconia Halo Solitaire Ring',
+    details: [
+      'Material: 925 sterling silver',
+      'Stone: princess-cut cubic zirconia',
+      'Setting: halo solitaire',
+      'Available in multiple sizes'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80&auto=format&fit=crop',
+    name: 'French Luxury S925 14K Gold-Plated Tassel Zircon Necklace',
+    details: [
+      'Material: S925 sterling silver',
+      'Plating: 14K gold',
+      'Stones: clear cubic zirconia',
+      'Style: French luxury tassel'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1573408301185-9519f94816b5?w=600&q=80&auto=format&fit=crop',
+    name: '925 Sterling Silver Open Ring with Zircon & Pearl',
+    details: [
+      'Material: 925 sterling silver',
+      'Stones: zircon + freshwater pearl',
+      'Style: open adjustable band',
+      'One size fits most'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=80&auto=format&fit=crop',
+    name: 'French Geometric Sterling Silver Colored Zircon Necklace',
+    details: [
+      'Material: 925 sterling silver',
+      'Stones: multicolor cubic zirconia',
+      'Style: French geometric',
+      'Gold-plated clasp'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80&auto=format&fit=crop',
+    name: '925 Silver Blue Crystal Drop Clavicle Chain Necklace',
+    details: [
+      'Material: 925 sterling silver',
+      'Stone: blue crystal drop',
+      'Style: delicate clavicle chain',
+      'Hypoallergenic, nickel-free'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80&auto=format&fit=crop',
+    name: 'S925 18K Gold-Plated Blue Zircon Halo Drop Earrings',
+    details: [
+      'Material: S925 sterling silver',
+      'Plating: 18K gold',
+      'Stone: blue cubic zirconia halo',
+      'Style: elegant drop earrings'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1630009958963-78cc45f2e16d?w=600&q=80&auto=format&fit=crop',
+    name: 'Korean 925 Silver Geometric Zircon Earrings — 14K Gold Plated',
+    details: [
+      'Material: 925 sterling silver',
+      'Plating: 14K gold',
+      'Stones: geometric zirconia set',
+      'Style: Korean contemporary'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop',
+    name: 'Korean Luxury Inlaid Zircon Flower Earrings',
+    details: [
+      'Material: 925 sterling silver',
+      'Stones: inlaid cubic zirconia',
+      'Shape: blooming flower',
+      'Style: Korean luxury'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1601821765780-754fa98637c1?w=600&q=80&auto=format&fit=crop',
+    name: '925 Silver 14K Gold-Plated Long Tassel Zircon Flower Earrings',
+    details: [
+      'Material: 925 sterling silver',
+      'Plating: 14K gold',
+      'Stones: zircon flower cluster',
+      'Style: long tassel drop'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=600&q=80&auto=format&fit=crop',
+    name: '925 Silver Pearl Earrings — 14K Gold Plated',
+    details: [
+      'Material: 925 sterling silver',
+      'Plating: 14K gold',
+      'Stone: natural shell pearl',
+      'Style: timeless classic studs'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80&auto=format&fit=crop',
+    name: '925 Silver European Geometric Crystal Earrings — 14K Gold',
+    details: [
+      'Material: 925 sterling silver',
+      'Plating: 14K gold',
+      'Stones: European crystal cut',
+      'Style: geometric statement'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop',
+    name: '925 Silver French Pavé Crystal Earrings — 14K Gold Plated',
+    details: [
+      'Material: 925 sterling silver',
+      'Plating: 14K gold',
+      'Stones: pavé crystal set',
+      'Style: French luxury'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1630009958963-78cc45f2e16d?w=600&q=80&auto=format&fit=crop',
+    name: '925 Sterling Silver Hoop Earrings — Multi-Size, Silver / Gold',
+    details: [
+      'Material: 925 sterling silver',
+      'Finish: silver or gold plated',
+      'Style: classic hoops',
+      'Available in multiple sizes'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80&auto=format&fit=crop',
+    name: '925 Silver Oval Halo Red / Green Zirconia Earrings',
+    details: [
+      'Material: 925 sterling silver',
+      'Stones: red or green zirconia',
+      'Setting: oval halo',
+      'Hypoallergenic, nickel-free'
+    ]
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=80&auto=format&fit=crop',
+    name: '925 Sterling Silver 14K Gold-Plated Shiny Zircon Wedding Earrings',
+    details: [
+      'Material: 925 sterling silver',
+      'Plating: 14K gold',
+      'Stones: AAA shiny zirconia',
+      'Style: bridal / wedding'
+    ]
+  }
+];
+
+const PER_PAGE = 6;
+const TOTAL_PAGES = Math.ceil(PRODUCTS.length / PER_PAGE);
+let currentPage = 1;
+
+/* ── Build one product card ──────────── */
+function buildCard(product) {
+  const detailsHTML = product.details
+    .map(d => `<li class="flex gap-2"><span class="detail-dot">•</span><span>${d}</span></li>`)
+    .join('');
+
+  const card = document.createElement('article');
+  card.className = 'product-card card-hidden';
+  card.innerHTML = `
+    <div class="product-img-wrap">
+      <img src="${product.img}" alt="${product.name}" loading="lazy" class="product-img" />
+    </div>
+    <div class="product-body">
+      <h3 class="product-name">${product.name}</h3>
+      <div class="mb-details">
+        <p class="product-details-label">Product details</p>
+        <ul class="product-details">${detailsHTML}</ul>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">Price: 80 SAR</div>
+      </div>
+    </div>`;
+  return card;
+}
+
+/* ── Render current page ─────────────── */
+function renderPage(page) {
+  const grid = document.getElementById('products-grid');
+  grid.innerHTML = '';
+
+  const start = (page - 1) * PER_PAGE;
+  const slice = PRODUCTS.slice(start, start + PER_PAGE);
+
+  slice.forEach((p, i) => {
+    const card = buildCard(p);
+    card.style.transitionDelay = (i * 0.07) + 's';
+    grid.appendChild(card);
+  });
+
+  // Update pagination
+  document.getElementById('page-info').textContent = `Page ${page} of ${TOTAL_PAGES}`;
+  document.getElementById('btn-prev').disabled = page === 1;
+  document.getElementById('btn-next').disabled = page === TOTAL_PAGES;
+
+  // Scroll to products top smoothly
+  if (page > 1) {
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Trigger reveal
+  requestAnimationFrame(() => {
+    grid.querySelectorAll('.card-hidden').forEach(el => {
+      el.classList.add('card-visible');
+      el.classList.remove('card-hidden');
+    });
+  });
+}
+
+/* ── Pagination buttons ──────────────── */
+document.getElementById('btn-prev').addEventListener('click', () => {
+  if (currentPage > 1) { currentPage--; renderPage(currentPage); }
+});
+document.getElementById('btn-next').addEventListener('click', () => {
+  if (currentPage < TOTAL_PAGES) { currentPage++; renderPage(currentPage); }
+});
+
+/* ── Theme toggle ────────────────────── */
+const themeBtn  = document.getElementById('theme-toggle');
+const iconMoon  = themeBtn.querySelector('.icon-moon');
+const iconSun   = themeBtn.querySelector('.icon-sun');
+
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('lumiere-theme', t);
+  iconMoon.style.display = t === 'dark' ? 'none'  : 'block';
+  iconSun.style.display  = t === 'dark' ? 'block' : 'none';
+}
+
+const savedTheme = localStorage.getItem('lumiere-theme') ||
+  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+applyTheme(savedTheme);
+
+themeBtn.addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+/* ── Language toggle ─────────────────── */
+const langBtn = document.getElementById('lang-toggle');
+let lang = 'en';
+
+const TRANSLATIONS = {
+  nav_products : { en: 'Products',       ar: 'المنتجات'  },
+  nav_about    : { en: 'About',          ar: 'من نحن'    },
+  nav_contact  : { en: 'Contact',        ar: 'تواصل'     },
+  eyebrow      : { en: 'Curated Luxury', ar: 'فخامة مختارة' },
+  hero_title   : { en: 'Accessories that tell your story', ar: 'إكسسوارات تحكي قصتك' },
+  hero_sub     : { en: 'A handpicked edit of fine 925 sterling silver jewelry — pearls, zircons, gold-plated finishes.', ar: 'مجموعة مختارة من مجوهرات الفضة الإسترلينية 925 — لؤلؤ، زركون، وطلاء ذهبي.' },
+  btn_shop     : { en: 'Shop Collection', ar: 'تسوق المجموعة' },
+  btn_discover : { en: 'Discover',        ar: 'اكتشف'       },
+  coll_title   : { en: 'The Collection',  ar: 'المجموعة'     },
+  coll_sub     : { en: 'Hand-selected pieces.', ar: 'قطع مختارة يدويًا.' },
+  det_label    : { en: 'Product details', ar: 'تفاصيل المنتج' },
+  price        : { en: 'Price: 80 SAR',  ar: 'السعر: ٨٠ ر.س' },
+  why_title    : { en: 'Why Lumière',    ar: 'لماذا لوميير'  },
+  f1_title     : { en: 'Authentic',      ar: 'أصالة'         },
+  f1_body      : { en: 'Genuine 925 sterling silver and natural pearls.', ar: 'فضة إسترلينية 925 حقيقية ولؤلؤ طبيعي.' },
+  f2_title     : { en: 'Worldwide',      ar: 'حول العالم'    },
+  f2_body      : { en: 'Fast shipping to your door.', ar: 'شحن سريع إلى باب منزلك.' },
+  f3_title     : { en: 'Guaranteed',     ar: 'مضمون'         },
+  f3_body      : { en: 'Quality guarantee on every order.', ar: 'ضمان الجودة على كل طلب.' },
+  footer_copy  : { en: '© 2026 Lumière. All rights reserved.', ar: '© 2026 لوميير. جميع الحقوق محفوظة.' },
+  prev         : { en: 'Previous',       ar: 'السابق'        },
+  next         : { en: 'Next',           ar: 'التالي'        },
+  page_of      : { en: 'Page',           ar: 'صفحة'         },
+  of           : { en: 'of',             ar: 'من'           },
+  lang_switch  : { en: 'English',        ar: 'العربية'       }
+};
+
+function t(key) { return TRANSLATIONS[key][lang]; }
+
+function applyLang(l) {
+  lang = l;
+  const isAr = l === 'ar';
+  document.documentElement.lang = l;
+  document.documentElement.dir  = isAr ? 'rtl' : 'ltr';
+  langBtn.textContent = t('lang_switch');
+
+  // Nav
+  const navLinks = document.querySelectorAll('.main-nav a, .mobile-link');
+  const keys = ['nav_products','nav_about','nav_contact'];
+  navLinks.forEach((a, i) => { if (keys[i % 3]) a.textContent = t(keys[i % 3]); });
+
+  // Hero
+  document.querySelector('.hero-eyebrow').textContent = t('eyebrow');
+  document.querySelector('.hero-title').textContent   = t('hero_title');
+  document.querySelector('.hero-sub').textContent     = t('hero_sub');
+  document.querySelector('.btn-primary').textContent  = t('btn_shop');
+  document.querySelector('.btn-outline').textContent  = t('btn_discover');
+
+  // Products section
+  document.querySelector('.section-title').textContent = t('coll_title');
+  document.querySelector('.section-sub').textContent   = t('coll_sub');
+
+  // Cards (live in DOM)
+  document.querySelectorAll('.product-details-label').forEach(el => { el.textContent = t('det_label'); });
+  document.querySelectorAll('.product-price').forEach(el => { el.textContent = t('price'); });
+
+  // Pagination
+  document.getElementById('btn-prev').textContent = t('prev');
+  document.getElementById('btn-next').textContent = t('next');
+  updatePageInfo();
+
+  // About
+  document.querySelector('.section-title.centered').textContent = t('why_title');
+  const fCards = document.querySelectorAll('.feature-card');
+  const fKeys = [['f1_title','f1_body'],['f2_title','f2_body'],['f3_title','f3_body']];
+  fCards.forEach((card, i) => {
+    card.querySelector('h3').textContent = t(fKeys[i][0]);
+    card.querySelector('p').textContent  = t(fKeys[i][1]);
+  });
+
+  // Footer
+  document.querySelector('.footer-copy').textContent = t('footer_copy');
+}
+
+function updatePageInfo() {
+  const pageWord = t('page_of');
+  const ofWord   = t('of');
+  document.getElementById('page-info').textContent =
+    `${pageWord} ${currentPage} ${ofWord} ${TOTAL_PAGES}`;
+}
+
+langBtn.addEventListener('click', () => {
+  applyLang(lang === 'en' ? 'ar' : 'en');
+});
+
+/* ── Mobile menu ─────────────────────── */
+const menuBtn  = document.getElementById('menu-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+menuBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+
+/* ── Sticky header shadow ────────────── */
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.style.boxShadow = window.scrollY > 8 ? '0 2px 18px rgba(100,70,30,.10)' : 'none';
+}, { passive: true });
+
+/* ── Init ────────────────────────────── */
+renderPage(1);
+
+</script>
+  <!-- <script src="script.js"></script> -->
 </body>
 </html>
+
