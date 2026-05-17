@@ -1,4 +1,3 @@
-
 'use strict';
 
 /* ── 32 Products (8 per page × 4 pages) ── */
