@@ -1,167 +1,263 @@
-/* ═══════════════════════════════════════
-   LUMIÈRE — FINAL VERSION
-   ═══════════════════════════════════════ */
-
-'use strict';
-
-/* ── 32 Products (8 per page × 4 pages) ── */
-const PRODUCTS = [
-  // Page 1
-  { name: 'Single Shell Pearl Pendant Necklace — 925 Sterling Silver', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Korean 925 Silver Freshwater Pearl Bracelet', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80&auto=format&fit=crop' },
-  { name: 'S925 V-Shape Half Pearl Half Zircon Pendant Necklace', img: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Silver Princess Cut Zirconia Halo Solitaire Ring', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80&auto=format&fit=crop' },
-  { name: 'French Luxury S925 14K Gold-Plated Tassel Zircon Necklace', img: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Sterling Silver Open Ring with Zircon & Pearl', img: 'https://images.unsplash.com/photo-1573408301185-9519f94816b5?w=600&q=80&auto=format&fit=crop' },
-  { name: 'French Geometric Sterling Silver Colored Zircon Necklace', img: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Silver Blue Crystal Drop Clavicle Chain Necklace', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80&auto=format&fit=crop' },
-  
-  // Page 2
-  { name: 'S925 18K Gold-Plated Blue Zircon Halo Drop Earrings', img: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Korean 925 Silver Geometric Zircon Earrings — 14K Gold Plated', img: 'https://images.unsplash.com/photo-1630009958963-78cc45f2e16d?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Korean Luxury Inlaid Zircon Flower Earrings', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Silver 14K Gold-Plated Long Tassel Zircon Flower Earrings', img: 'https://images.unsplash.com/photo-1601821765780-754fa98637c1?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Silver Pearl Earrings — 14K Gold Plated', img: 'https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Silver European Geometric Crystal Earrings — 14K Gold', img: 'https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Silver French Pavé Crystal Earrings — 14K Gold Plated', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Sterling Silver Hoop Earrings — Multi-Size, Silver / Gold', img: 'https://images.unsplash.com/photo-1630009958963-78cc45f2e16d?w=600&q=80&auto=format&fit=crop' },
-  
-  // Page 3
-  { name: '925 Silver Oval Halo Red / Green Zirconia Earrings', img: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80&auto=format&fit=crop' },
-  { name: '925 Sterling Silver 14K Gold-Plated Shiny Zircon Wedding Earrings', img: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Minimalist 925 Silver Bar Pendant Necklace', img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Vintage 925 Silver Rose Flower Ring', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Elegant 925 Silver Chain Bracelet with Heart Charm', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Dainty 925 Silver Infinity Necklace', img: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Classic 925 Silver Stud Earrings with CZ', img: 'https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Modern 925 Silver Geometric Ring', img: 'https://images.unsplash.com/photo-1573408301185-9519f94816b5?w=600&q=80&auto=format&fit=crop' },
-  
-  // Page 4
-  { name: 'Delicate 925 Silver Layered Necklace Set', img: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Bohemian 925 Silver Turquoise Ring', img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Elegant 925 Silver Tennis Bracelet', img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Romantic 925 Silver Heart Pendant', img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Statement 925 Silver Cocktail Ring', img: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Vintage 925 Silver Filigree Earrings', img: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Minimalist 925 Silver Cuff Bracelet', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop' },
-  { name: 'Chic 925 Silver Bar Earrings', img: 'https://images.unsplash.com/photo-1630009958963-78cc45f2e16d?w=600&q=80&auto=format&fit=crop' }
+const products = [
+    {
+        id: 1,
+        name: "خاتم ألماس كلاسيكي",
+        category: "rings",
+        categoryAr: "خواتم",
+        price: 4500,
+        oldPrice: 5200,
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80",
+        badge: "جديد",
+        rating: 5,
+        description: "خاتم ألماس كلاسيكي مصنوع من الذهب الأبيض عيار 18، مرصع بألماسة بقطع brilliant تزن 1 قيراط. تصميم أنيق يناسب جميع المناسبات."
+    },
+    {
+        id: 2,
+        name: "قلادة لؤلؤ طبيعية",
+        category: "necklaces",
+        categoryAr: "قلائد",
+        price: 3200,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80",
+        badge: null,
+        rating: 5,
+        description: "قلادة فاخرة من اللؤلؤ الطبيعي مع سلسلة من الذهب الأصفر عيار 18. لؤلؤ مختار بعناية فائقة بلمعان استثنائي."
+    },
+    {
+        id: 3,
+        name: "أقراط زفير أزرق",
+        category: "earrings",
+        categoryAr: "أقراط",
+        price: 2800,
+        oldPrice: 3500,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",
+        badge: "خصم",
+        rating: 4,
+        description: "أقراط أنيقة مرصعة بحجر الزفير الأزرق الطبيعي محاط بالألماس الصغير. تصميم عصري يضفي لمسة من الفخامة."
+    },
+    {
+        id: 4,
+        name: "سوار ذهب مرصع",
+        category: "bracelets",
+        categoryAr: "أساور",
+        price: 5800,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80",
+        badge: "مميز",
+        rating: 5,
+        description: "سوار فاخر من الذهب الوردي عيار 18 مرصع بالألماس والزمرد. قطعة فريدة تجمع بين الأناقة والفخامة."
+    },
+    {
+        id: 5,
+        name: "خاتم ياقوت أحمر",
+        category: "rings",
+        categoryAr: "خواتم",
+        price: 7200,
+        oldPrice: 8000,
+        image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a8?w=600&q=80",
+        badge: "حصري",
+        rating: 5,
+        description: "خاتم استثنائي مرصع بحجر الياقوت الأحمر الطبيعي محاط بهالة من الألماس. قطعة نادرة لهواة المجوهرات الفاخرة."
+    },
+    {
+        id: 6,
+        name: "قلادة ألماس متدلية",
+        category: "necklaces",
+        categoryAr: "قلائد",
+        price: 6500,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80",
+        badge: null,
+        rating: 5,
+        description: "قلادة متدلية بتصميم عصري مرصعة بالألماس على شكل قطرة ماء. تضفي لمسة من البريق على أي إطلالة."
+    },
+    {
+        id: 7,
+        name: "أقراط ذهب دائرية",
+        category: "earrings",
+        categoryAr: "أقراط",
+        price: 1800,
+        oldPrice: 2200,
+        image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80",
+        badge: "خصم",
+        rating: 4,
+        description: "أقراط دائرية أنيقة من الذهب الأصفر عيار 18 بتصميم بسيط وعصري. مناسبة للاستخدام اليومي والمناسبات الخاصة."
+    },
+    {
+        id: 8,
+        name: "سوار تنس ألماس",
+        category: "bracelets",
+        categoryAr: "أساور",
+        price: 9500,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80",
+        badge: "فاخر",
+        rating: 5,
+        description: "سوار تنس كلاسيكي مرصع بالألماس المتواصل. قطعة مجوهرات خالدة تضيف لمسة من الأناقة الراقية."
+    }
 ];
-
-const PER_PAGE = 8;
-const TOTAL_PAGES = Math.ceil(PRODUCTS.length / PER_PAGE);
-let currentPage = 1;
-
-/* ── DOM refs ── */
-const grid = document.getElementById('products-grid');
-const btnPrev = document.getElementById('btn-prev');
-const btnNext = document.getElementById('btn-next');
-const pageInfo = document.getElementById('page-info');
-
-/* ── Build card ── */
-function buildCard(product) {
-  const card = document.createElement('article');
-  card.className = 'product-card';
-  card.innerHTML = `
-    <div class="product-img-wrap">
-      <img src="${product.img}" alt="${product.name}" loading="lazy" class="product-img">
-    </div>
-    <div class="product-body">
-      <h3 class="product-name">${product.name}</h3>
-      <div class="product-footer">
-        <div class="product-price">Price: 80 SAR</div>
-        <span class="product-details-link">View details</span>
-      </div>
-    </div>
-  `;
-  return card;
-}
-
-/* ── Render page ── */
-function renderPage(page) {
-  grid.innerHTML = '';
-  
-  const start = (page - 1) * PER_PAGE;
-  const slice = PRODUCTS.slice(start, start + PER_PAGE);
-  
-  slice.forEach((product, i) => {
-    const card = buildCard(product);
-    card.style.transitionDelay = (i * 0.06) + 's';
-    grid.appendChild(card);
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        card.classList.add('visible');
-      });
+// DOM Elements
+const productsGrid = document.getElementById('productsGrid');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const productModal = document.getElementById('productModal');
+const modalClose = document.getElementById('modalClose');
+const modalOverlay = document.querySelector('.modal-overlay');
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.querySelector('.nav-links');
+const navbar = document.getElementById('navbar');
+const suggestionForm = document.getElementById('suggestionForm');
+const formStatus = document.getElementById('formStatus');
+const langToggle = document.getElementById('langToggle');
+// Initialize EmailJS (replace with your actual keys)
+(function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init('YOUR_PUBLIC_KEY');
+    }
+})();
+// Render Products
+function renderProducts(filter = 'all') {
+    const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+    
+    productsGrid.innerHTML = filtered.map(product => `
+        <div class="product-card" data-id="${product.id}" data-category="${product.category}">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+            </div>
+            <div class="product-info">
+                <p class="product-category">${product.categoryAr}</p>
+                <h3 class="product-name">${product.name}</h3>
+                <div class="product-price">
+                    <div>
+                        <span class="price">${product.price.toLocaleString()} ر.س</span>
+                        ${product.oldPrice ? `<span class="old-price">${product.oldPrice.toLocaleString()} ر.س</span>` : ''}
+                    </div>
+                    <div class="product-rating">
+                        ${'<i class="fas fa-star"></i>'.repeat(product.rating)}${'<i class="far fa-star"></i>'.repeat(5 - product.rating)}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    // Add click event to product cards
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', () => openModal(parseInt(card.dataset.id)));
     });
-  });
-  
-  pageInfo.textContent = `Page ${page} of ${TOTAL_PAGES}`;
-  btnPrev.disabled = (page === 1);
-  btnNext.disabled = (page === TOTAL_PAGES);
-  
-  if (page > 1) {
-    const sec = document.getElementById('products');
-    if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 }
-
-/* ── Pagination ── */
-btnPrev.addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
-    renderPage(currentPage);
-  }
+// Filter Products
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProducts(btn.dataset.filter);
+    });
 });
-
-btnNext.addEventListener('click', () => {
-  if (currentPage < TOTAL_PAGES) {
-    currentPage++;
-    renderPage(currentPage);
-  }
-});
-
-/* ═══════════════════════════════════════
-   THEME TOGGLE
-   ═══════════════════════════════════════ */
-const themeBtn = document.getElementById('theme-toggle');
-
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('lumiere-theme', theme);
+// Modal Functions
+function openModal(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    document.getElementById('modalImage').src = product.image;
+    document.getElementById('modalImage').alt = product.name;
+    document.getElementById('modalTitle').textContent = product.name;
+    document.getElementById('modalCategory').textContent = product.categoryAr;
+    document.getElementById('modalDescription').textContent = product.description;
+    document.getElementById('modalPrice').textContent = `${product.price.toLocaleString()} ر.س`;
+    productModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
-
-const savedTheme = localStorage.getItem('lumiere-theme') ||
-  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-applyTheme(savedTheme);
-
-themeBtn.addEventListener('click', () => {
-  const current = document.documentElement.getAttribute('data-theme');
-  applyTheme(current === 'dark' ? 'light' : 'dark');
+function closeModal() {
+    productModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModal);
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
 });
-
-/* ═══════════════════════════════════════
-   FORM HANDLING
-   ═══════════════════════════════════════ */
-const form = document.getElementById('suggestions-form');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  // Simple alert for demo purposes
-  alert('Thank you for your suggestion! We will review it soon.');
-  form.reset();
+// Mobile Menu
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
 });
-
-/* ═══════════════════════════════════════
-   STICKY HEADER SHADOW
-   ═══════════════════════════════════════ */
-const header = document.getElementById('site-header');
+// Close mobile menu on link click
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
+});
+// Navbar scroll effect
 window.addEventListener('scroll', () => {
-  header.style.boxShadow = window.scrollY > 10
-    ? '0 2px 20px rgba(100,70,30,0.12)'
-    : 'none';
-}, { passive: true });
-
-/* ═══════════════════════════════════════
-   INIT
-   ═══════════════════════════════════════ */
-renderPage(1);
+    if (window.scrollY > 100) {
+        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+    } else {
+        navbar.style.boxShadow = 'var(--shadow)';
+    }
+});
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+// Form Submission with EmailJS
+suggestionForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const submitBtn = suggestionForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
+    try {
+        // Replace with your actual EmailJS service and template IDs
+        await emailjs.sendForm(
+            'YOUR_SERVICE_ID',
+            'YOUR_TEMPLATE_ID',
+            suggestionForm,
+            'YOUR_PUBLIC_KEY'
+        );
+        formStatus.textContent = 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
+        formStatus.className = 'form-status success';
+        suggestionForm.reset();
+    } catch (error) {
+        formStatus.textContent = 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.';
+        formStatus.className = 'form-status error';
+        console.error('EmailJS Error:', error);
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'إرسال الرسالة';
+    }
+});
+// Language Toggle (placeholder)
+let isArabic = true;
+langToggle.addEventListener('click', () => {
+    isArabic = !isArabic;
+    langToggle.textContent = isArabic ? 'EN' : 'ع';
+    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+    document.documentElement.lang = isArabic ? 'ar' : 'en';
+});
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+// Initialize
+renderProducts();
