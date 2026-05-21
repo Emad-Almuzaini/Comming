@@ -1,125 +1,315 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lumière — Luxury Accessories | إكسسوارات فاخرة</title>
-  <meta name="description" content="Lumière — handpicked luxury jewelry & accessories. Sterling silver necklaces, earrings, rings, bracelets.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabella Treasures | مجوهرات فاخرة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a href="#" class="logo">Lumière</a>
-      <nav class="main-nav">
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
-        <button class="lang-btn" id="lang-toggle">العربية</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80&auto=format&fit=crop" alt="" class="hero-img">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <p class="hero-eyebrow">Curated Luxury</p>
-      <h1 class="hero-title">Accessories that tell your story</h1>
-      <p class="hero-sub">A handpicked edit of fine 925 sterling silver jewelry — pearls, zircons, gold-plated finishes. Order on WhatsApp.</p>
-      <div class="hero-btns">
-        <a href="#products" class="btn-primary">Shop Collection</a>
-        <a href="#products" class="btn-outline">Discover</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="products" class="products-section">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">The Collection</h2>
-        <p class="section-sub">Hand-selected pieces.</p>
-      </div>
-      <div class="products-grid" id="products-grid"></div>
-      <div class="pagination">
-        <button class="page-btn" id="btn-prev" disabled>Previous</button>
-        <span class="page-info" id="page-info">Page 1 of 4</span>
-        <button class="page-btn" id="btn-next">Next</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY LUMIÈRE -->
-  <section id="about" class="about-section">
-    <div class="container">
-      <h2 class="section-title centered">Why Lumière</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">★</div>
-          <h3>Authentic</h3>
-          <p>Genuine 925 sterling silver and natural pearls.</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-gem"></i></span>
+                <span class="logo-text">Arabella Treasures</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#products" class="nav-link">المنتجات</a></li>
+                <li><a href="#about" class="nav-link">من نحن</a></li>
+                <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle">EN</button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">★</div>
-          <h3>Worldwide</h3>
-          <p>Fast shipping to your door.</p>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80" alt="Luxury Jewelry">
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">★</div>
-          <h3>Guaranteed</h3>
-          <p>Quality guarantee on every order.</p>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">اكتشفي سحر المجوهرات الفاخرة</h1>
+            <p class="hero-subtitle">قطع فريدة تصنع بحب وإتقان لتزيّن أجمل لحظاتك</p>
+            <a href="#products" class="btn btn-primary">اكتشفي المجموعة</a>
         </div>
-      </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>جودة عالية</h3>
+                    <p>مجوهرات مصنوعة من أجود المعادن والأحجار الكريمة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>توصيل مجاني</h3>
+                    <p>شحن مجاني لجميع الطلبات داخل المملكة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ضمان مدى الحياة</h3>
+                    <p>ضمان شامل على جميع قطع المجوهرات</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>تغليف فاخر</h3>
+                    <p>تغليف أنيق مثالي للهدايا والمناسبات الخاصة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">مجموعتنا المميزة</h2>
+                <p class="section-subtitle">اختاري من بين أرقى قطع المجوهرات المصممة بعناية فائقة</p>
+            </div>
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="rings">خواتم</button>
+                <button class="filter-btn" data-filter="necklaces">قلائد</button>
+                <button class="filter-btn" data-filter="earrings">أقراط</button>
+                <button class="filter-btn" data-filter="bracelets">أساور</button>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1617038220311-2115d59b9661?w=800&q=80" alt="About Arabella Treasures">
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">قصتنا</h2>
+                    <p>منذ أكثر من عشرين عاماً، نصنع في Arabella Treasures أجمل قطع المجوهرات التي تروي قصص الحب والأناقة. كل قطعة نبتكرها تحمل بصمة فريدة من نوعها، مصممة لتخلد أجمل اللحظات في حياتك.</p>
+                    <p>نختار بعناية فائقة أجود أنواع الألماس والأحجار الكريمة، ونصهرها في قوالب من الذهب الخالص لنقدم لكِ تحفاً فنية تستحق أن تكون جزءاً من ذكرياتك.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">+20</span>
+                            <span class="stat-label">عاماً من الخبرة</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">+5000</span>
+                            <span class="stat-label">عميلة سعيدة</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">+1000</span>
+                            <span class="stat-label">قطعة فريدة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">آراء عميلاتنا</h2>
+                <p class="section-subtitle">ما تقوله عميلاتنا عن تجربتهن معنا</p>
+            </div>
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"مجوهرات رائعة وجودة استثنائية. الخاتم الذي اشتريته كان أجمل مما توقعت. شكراً Arabella Treasures!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="سارة">
+                        <div>
+                            <h4>سارة أحمد</h4>
+                            <span>الرياض</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"خدمة ممتازة وتوصيل سريع. القلادة التي طلبتها كانت هدية مثالية لأمي. أنصح الجميع بالتعامل معهم."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="نورة">
+                        <div>
+                            <h4>نورة محمد</h4>
+                            <span>جدة</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"تصاميم فريدة وأسعار منافسة. أصبحت عميلة دائمة لديهم. كل قطعة أشتريها تحصد إعجاب الجميع."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="لمى">
+                        <div>
+                            <h4>لمى خالد</h4>
+                            <span>الدمام</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Suggestion Form Section -->
+    <section class="suggestion" id="contact">
+        <div class="container">
+            <div class="suggestion-grid">
+                <div class="suggestion-content">
+                    <h2 class="section-title">اقتراحاتك تهمنا</h2>
+                    <p>نحب أن نسمع منك! شاركي معنا اقتراحاتك أو طلباتك الخاصة وسنعمل على تحقيقها.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+966 50 123 4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@arabellatreasures.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الرياض، المملكة العربية السعودية</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="suggestion-form-wrapper">
+                    <form class="suggestion-form" id="suggestionForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">الموضوع</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">إرسال الرسالة</button>
+                        <p class="form-status" id="formStatus"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-gem"></i></span>
+                        <span class="logo-text">Arabella Treasures</span>
+                    </a>
+                    <p>نصنع المجوهرات الفاخرة بشغف وإتقان منذ أكثر من عشرين عاماً.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>الفئات</h4>
+                    <ul>
+                        <li><a href="#">خواتم</a></li>
+                        <li><a href="#">قلائد</a></li>
+                        <li><a href="#">أقراط</a></li>
+                        <li><a href="#">أساور</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>ساعات العمل</h4>
+                    <ul>
+                        <li>السبت - الخميس: 10 ص - 10 م</li>
+                        <li>الجمعة: 4 م - 10 م</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Arabella Treasures. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-category" id="modalCategory"></p>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div class="modal-price" id="modalPrice"></div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary">أضف إلى السلة</button>
+                        <button class="btn btn-outline">المفضلة <i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-
-  <!-- SUGGESTIONS -->
-  <section id="suggestions" dir="ltr" class="suggestions-section">
-    <div class="suggestions-container">
-      <div class="section-head">
-        <h2 class="section-title">Send us a suggestion</h2>
-        <p class="section-sub">We'd love to hear your ideas to improve Lumière.</p>
-      </div>
-      <form class="suggestions-form" id="suggestions-form">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" maxlength="100" required>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" maxlength="255" required>
-        </div>
-        <div class="form-group">
-          <label>Your suggestion</label>
-          <textarea maxlength="1000" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn-submit">Send suggestion</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contact" class="site-footer">
-    <div class="container footer-inner">
-      <span class="logo">Lumière</span>
-      <span class="footer-copy">© 2026 Lumière. All rights reserved.</span>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
