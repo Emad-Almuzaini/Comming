@@ -427,6 +427,29 @@ img {
 .product-rating {
     color: #fbbf24;
 }
+.product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--primary), #d97706);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+}
+.product-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201, 160, 69, 0.3);
+}
+.product-link i {
+    font-size: 0.8rem;
+}
 /* About Section */
 .about {
     padding: 100px 0;
