@@ -1,3 +1,4 @@
+// Products Data
 const products = [
     {
         id: 1,
@@ -9,7 +10,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80",
         badge: "جديد",
         rating: 5,
-        description: "خاتم ألماس كلاسيكي مصنوع من الذهب الأبيض عيار 18، مرصع بألماسة بقطع brilliant تزن 1 قيراط. تصميم أنيق يناسب جميع المناسبات."
+        description: "خاتم ألماس كلاسيكي مصنوع من الذهب الأبيض عيار 18، مرصع بألماسة بقطع brilliant تزن 1 قيراط. تصميم أنيق يناسب جميع المناسبات.",
+        link: "https://ar.aliexpress.com/item/1005009347288433.html"
     },
     {
         id: 2,
@@ -21,7 +23,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80",
         badge: null,
         rating: 5,
-        description: "قلادة فاخرة من اللؤلؤ الطبيعي مع سلسلة من الذهب الأصفر عيار 18. لؤلؤ مختار بعناية فائقة بلمعان استثنائي."
+        description: "قلادة فاخرة من اللؤلؤ الطبيعي مع سلسلة من الذهب الأصفر عيار 18. لؤلؤ مختار بعناية فائقة بلمعان استثنائي.",
+        link: "https://ar.aliexpress.com/item/1005008952903883.html"
     },
     {
         id: 3,
@@ -33,7 +36,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80",
         badge: "خصم",
         rating: 4,
-        description: "أقراط أنيقة مرصعة بحجر الزفير الأزرق الطبيعي محاط بالألماس الصغير. تصميم عصري يضفي لمسة من الفخامة."
+        description: "أقراط أنيقة مرصعة بحجر الزفير الأزرق الطبيعي محاط بالألماس الصغير. تصميم عصري يضفي لمسة من الفخامة.",
+        link: "https://ar.aliexpress.com/item/1005007917016545.html"
     },
     {
         id: 4,
@@ -45,7 +49,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80",
         badge: "مميز",
         rating: 5,
-        description: "سوار فاخر من الذهب الوردي عيار 18 مرصع بالألماس والزمرد. قطعة فريدة تجمع بين الأناقة والفخامة."
+        description: "سوار فاخر من الذهب الوردي عيار 18 مرصع بالألماس والزمرد. قطعة فريدة تجمع بين الأناقة والفخامة.",
+        link: "https://ar.aliexpress.com/item/1005009611434923.html"
     },
     {
         id: 5,
@@ -57,7 +62,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a8?w=600&q=80",
         badge: "حصري",
         rating: 5,
-        description: "خاتم استثنائي مرصع بحجر الياقوت الأحمر الطبيعي محاط بهالة من الألماس. قطعة نادرة لهواة المجوهرات الفاخرة."
+        description: "خاتم استثنائي مرصع بحجر الياقوت الأحمر الطبيعي محاط بهالة من الألماس. قطعة نادرة لهواة المجوهرات الفاخرة.",
+        link: "https://ar.aliexpress.com/item/1005009730132411.html"
     },
     {
         id: 6,
@@ -69,7 +75,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80",
         badge: null,
         rating: 5,
-        description: "قلادة متدلية بتصميم عصري مرصعة بالألماس على شكل قطرة ماء. تضفي لمسة من البريق على أي إطلالة."
+        description: "قلادة متدلية بتصميم عصري مرصعة بالألماس على شكل قطرة ماء. تضفي لمسة من البريق على أي إطلالة.",
+        link: "https://ar.aliexpress.com/item/1005008604750451.html"
     },
     {
         id: 7,
@@ -81,7 +88,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80",
         badge: "خصم",
         rating: 4,
-        description: "أقراط دائرية أنيقة من الذهب الأصفر عيار 18 بتصميم بسيط وعصري. مناسبة للاستخدام اليومي والمناسبات الخاصة."
+        description: "أقراط دائرية أنيقة من الذهب الأصفر عيار 18 بتصميم بسيط وعصري. مناسبة للاستخدام اليومي والمناسبات الخاصة.",
+        link: "https://ar.aliexpress.com/item/1005009622684393.html"
     },
     {
         id: 8,
@@ -93,7 +101,8 @@ const products = [
         image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80",
         badge: "فاخر",
         rating: 5,
-        description: "سوار تنس كلاسيكي مرصع بالألماس المتواصل. قطعة مجوهرات خالدة تضيف لمسة من الأناقة الراقية."
+        description: "سوار تنس كلاسيكي مرصع بالألماس المتواصل. قطعة مجوهرات خالدة تضيف لمسة من الأناقة الراقية.",
+        link: "https://ar.aliexpress.com/item/1005006268429889.html"
     }
 ];
 // DOM Elements
@@ -136,6 +145,10 @@ function renderProducts(filter = 'all') {
                         ${'<i class="fas fa-star"></i>'.repeat(product.rating)}${'<i class="far fa-star"></i>'.repeat(5 - product.rating)}
                     </div>
                 </div>
+                <a href="${product.link}" target="_blank" rel="noopener noreferrer" class="product-link" onclick="event.stopPropagation()">
+                    <i class="fas fa-external-link-alt"></i>
+                    اشتري الآن
+                </a>
             </div>
         </div>
     `).join('');
@@ -162,6 +175,11 @@ function openModal(productId) {
     document.getElementById('modalCategory').textContent = product.categoryAr;
     document.getElementById('modalDescription').textContent = product.description;
     document.getElementById('modalPrice').textContent = `${product.price.toLocaleString()} ر.س`;
+    
+    const modalLink = document.getElementById('modalLink');
+    if (modalLink) {
+        modalLink.href = product.link;
+    }
     productModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
