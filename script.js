@@ -485,10 +485,10 @@ suggestionForm.addEventListener('submit', async (e) => {
     try {
         // Replace with your actual EmailJS service and template IDs
         await emailjs.sendForm(
-            'YOUR_SERVICE_ID',
-            'YOUR_TEMPLATE_ID',
+            'service_cu15w2q',
+            'template_p7bwyr8',
             suggestionForm,
-            'YOUR_PUBLIC_KEY'
+            'DKHnSfn4S_PR5sOav'
         );
         formStatus.textContent = 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
         formStatus.className = 'form-status success';
