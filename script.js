@@ -1,3 +1,4 @@
+// Products Data
 const products = [
     {
         id: 1,
@@ -351,6 +352,7 @@ const products = [
         link: ""
     }
 ];
+
 // DOM Elements
 const productsGrid = document.getElementById('productsGrid');
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -363,12 +365,14 @@ const navbar = document.getElementById('navbar');
 const suggestionForm = document.getElementById('suggestionForm');
 const formStatus = document.getElementById('formStatus');
 const langToggle = document.getElementById('langToggle');
-// Initialize EmailJS (replace with your actual keys)
+
+// Initialize EmailJS
 (function() {
     if (typeof emailjs !== 'undefined') {
-        emailjs.init('YOUR_PUBLIC_KEY');
+        emailjs.init('DKHnSfn4S_PR5sOav');
     }
 })();
+
 // Render Products
 function renderProducts(filter = 'all') {
     const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
@@ -398,11 +402,13 @@ function renderProducts(filter = 'all') {
             </div>
         </div>
     `).join('');
+
     // Add click event to product cards
     document.querySelectorAll('.product-card').forEach(card => {
         card.addEventListener('click', () => openModal(parseInt(card.dataset.id)));
     });
 }
+
 // Filter Products
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -411,10 +417,12 @@ filterBtns.forEach(btn => {
         renderProducts(btn.dataset.filter);
     });
 });
+
 // Modal Functions
 function openModal(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
+
     document.getElementById('modalImage').src = product.image;
     document.getElementById('modalImage').alt = product.name;
     document.getElementById('modalTitle').textContent = product.name;
@@ -426,23 +434,29 @@ function openModal(productId) {
     if (modalLink) {
         modalLink.href = product.link;
     }
+
     productModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+
 function closeModal() {
     productModal.classList.remove('active');
     document.body.style.overflow = '';
 }
+
 modalClose.addEventListener('click', closeModal);
 modalOverlay.addEventListener('click', closeModal);
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
+
 // Mobile Menu
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     menuToggle.classList.toggle('active');
 });
+
 // Close mobile menu on link click
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
@@ -450,6 +464,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
         menuToggle.classList.remove('active');
     });
 });
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
@@ -458,6 +473,7 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = 'var(--shadow)';
     }
 });
+
 // Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
@@ -468,6 +484,7 @@ window.addEventListener('scroll', () => {
             current = section.getAttribute('id');
         }
     });
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -475,6 +492,7 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
 // Form Submission with EmailJS
 suggestionForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -482,14 +500,15 @@ suggestionForm.addEventListener('submit', async (e) => {
     const submitBtn = suggestionForm.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'جاري الإرسال...';
+
     try {
-        // Replace with your actual EmailJS service and template IDs
         await emailjs.sendForm(
             'service_cu15w2q',
             'template_p7bwyr8',
             suggestionForm,
             'DKHnSfn4S_PR5sOav'
         );
+
         formStatus.textContent = 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
         formStatus.className = 'form-status success';
         suggestionForm.reset();
@@ -502,6 +521,7 @@ suggestionForm.addEventListener('submit', async (e) => {
         submitBtn.textContent = 'إرسال الرسالة';
     }
 });
+
 // Language Toggle (placeholder)
 let isArabic = true;
 langToggle.addEventListener('click', () => {
@@ -510,6 +530,7 @@ langToggle.addEventListener('click', () => {
     document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
     document.documentElement.lang = isArabic ? 'ar' : 'en';
 });
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -523,5 +544,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 // Initialize
 renderProducts();
