@@ -1,3 +1,3 @@
 <?php
-header ("location : http:///www.github.com")
+header ("location : http://www.github.com")
 ?>
