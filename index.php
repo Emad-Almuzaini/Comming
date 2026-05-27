@@ -1,3 +1,7 @@
+<html>
 <?php
-header ("location : http://www.github.com")
+/* This will give an error. Note the output
+ * above, which is before the header() call */
+header('Location: http://www.example.com/');
+exit;
 ?>
