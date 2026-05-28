@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطور ويب ومشرف سيرفرات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { 'inter': ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+        .glow-btn {
+            transition: all 0.3s ease;
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Navbar - شريط التنقل -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md border-b border-gray-800 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold gradient-text">Dev<span class="text-white">Port</span></span>
+            <div class="hidden md:flex gap-8 text-sm">
+                <a href="#tech" class="hover:text-purple-400 transition">التقنيات</a>
+                <a href="#projects" class="hover:text-purple-400 transition">المشاريع</a>
+                <a href="#experience" class="hover:text-purple-400 transition">الخبرة</a>
+                <a href="#contact" class="hover:text-purple-400 transition">تواصل</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Hero Section - القسم الرئيسي -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="text-center max-w-3xl">
+            <!-- أيقونة برمجية -->
+            <div class="mb-8 flex justify-center">
+                <div class="w-32 h-32 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 p-1">
+                    <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- العنوان -->
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                مرحباً، أنا 
+                <span class="gradient-text">مطور ويب</span>
+            </h1>
+            <!-- الوصف -->
+            <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed">
+                Full-stack Developer & Server Admin
+                <br>
+                متخصص في بناء المواقع وإدارة السيرفرات وحل مشاكل Linux و Apache
+            </p>
+            <!-- الأزرار -->
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="#projects" class="glow-btn px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-medium hover:opacity-90">
+                    شاهد مشاريعي
+                </a>
+                <a href="#contact" class="px-8 py-3 border border-gray-600 rounded-full font-medium hover:border-purple-400 transition">
+                    تواصل معي
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Tech Stack Section - التقنيات -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section id="tech" class="py-24 px-6 bg-gray-800/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16">
+                التقنيات التي <span class="gradient-text">أتقنها</span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- PHP -->
+                <div class="card-hover bg-gray-800 rounded-2xl p-6 text-center border border-gray-700">
+                    <div class="text-5xl mb-3">🐘</div>
+                    <h3 class="font-semibold">PHP</h3>
+                </div>
+                <!-- WordPress -->
+                <div class="card-hover bg-gray-800 rounded-2xl p-6 text-center border border-gray-700">
+                    <div class="text-5xl mb-3">📝</div>
+                    <h3 class="font-semibold">WordPress</h3>
+                </div>
+                <!-- Apache -->
+                <div class="card-hover bg-gray-800 rounded-2xl p-6 text-center border border-gray-700">
+                    <div class="text-5xl mb-3">🔧</div>
+                    <h3 class="font-semibold">Apache</h3>
+                </div>
+                <!-- Debian -->
+                <div class="card-hover bg-gray-800 rounded-2xl p-6 text-center border border-gray-700">
+                    <div class="text-5xl mb-3">🐧</div>
+                    <h3 class="font-semibold">Debian</h3>
+                </div>
+                <!-- macOS -->
+                <div class="card-hover bg-gray-800 rounded-2xl p-6 text-center border border-gray-700">
+                    <div class="text-5xl mb-3">🍎</div>
+                    <h3 class="font-semibold">macOS</h3>
+                </div>
+                <!-- VS Code -->
+                <div class="card-hover bg-gray-800 rounded-2xl p-6 text-center border border-gray-700">
+                    <div class="text-5xl mb-3">💻</div>
+                    <h3 class="font-semibold">VS Code</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Projects Section - المشاريع -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16">
+                آخر <span class="gradient-text">المشاريع</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- مشروع 1 -->
+                <div class="card-hover bg-gray-800 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="h-48 bg-gradient-to-br from-purple-900 to-blue-900 flex items-center justify-center">
+                        <span class="text-6xl">🌐</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">موقع تجارة إلكترونية</h3>
+                        <p class="text-gray-400 text-sm mb-4">متجر متكامل بـ WooCommerce مع نظام دفع وشحن متوافق مع السوق المحلي</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-purple-600/30 text-purple-300 text-xs rounded-full">WordPress</span>
+                            <span class="px-3 py-1 bg-blue-600/30 text-blue-300 text-xs rounded-full">PHP</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- مشروع 2 -->
+                <div class="card-hover bg-gray-800 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="h-48 bg-gradient-to-br from-green-900 to-teal-900 flex items-center justify-center">
+                        <span class="text-6xl">⚙️</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">إعداد سيرفر VPS</h3>
+                        <p class="text-gray-400 text-sm mb-4">سيرفر متعدد المواقع مع SSL مجاني وحماية متقدمة وأداء محسّن</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-green-600/30 text-green-300 text-xs rounded-full">Apache</span>
+                            <span class="px-3 py-1 bg-teal-600/30 text-teal-300 text-xs rounded-full">Debian</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- مشروع 3 -->
+                <div class="card-hover bg-gray-800 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="h-48 bg-gradient-to-br from-orange-900 to-red-900 flex items-center justify-center">
+                        <span class="text-6xl">📊</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">نظام إدارة محتوى</h3>
+                        <p class="text-gray-400 text-sm mb-4">CMS مخصص للشركات مع لوحة تحكم شاملة وإدارة المستخدمين</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-orange-600/30 text-orange-300 text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-red-600/30 text-red-300 text-xs rounded-full">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Experience Section - الخبرة -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section id="experience" class="py-24 px-6 bg-gray-800/50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16">
+                <span class="gradient-text">الخبرة</span> والمهارات
+            </h2>
+            <div class="space-y-8">
+                <!-- خبرة 1 -->
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 card-hover">
+                    <div class="flex items-start gap-6">
+                        <div class="text-5xl">🖥️</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">إدارة السيرفرات</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                خبرة واسعة في إعداد وإدارة سيرفرات Linux (Debian/Ubuntu) مع التحكم الكامل بـ SSH،
+                                إدارة الخدمات، مراقبة الأداء، وإعداد النسخ الاحتياطي التلقائي.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- خبرة 2 -->
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 card-hover">
+                    <div class="flex items-start gap-6">
+                        <div class="text-5xl">🔍</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">حل مشاكل Apache و Linux</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                تشخيص وإصلاح أخطاء Apache (VirtualHost, .htaccess, SSL, Permissions)،
+                                تحسين إعدادات PHP-FPM، ومعالجة مشاكل الأداء والذاكرة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- خبرة 3 -->
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 card-hover">
+                    <div class="flex items-start gap-6">
+                        <div class="text-5xl">🚀</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">تطوير الويب</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                بناء مواقع ويب متكاملة باستخدام PHP و WordPress، تطوير Plugins والـ Themes المخصصة،
+                                تحسين سرعة المواقع، والتكامل مع APIs المختلفة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Contact Section - التواصل -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">
+                هل لديك مشروع؟ <span class="gradient-text">تواصل معي</span>
+            </h2>
+            
+            <!-- نموذج التواصل -->
+            <form id="contactForm" class="bg-gray-800 rounded-2xl p-8 border border-gray-700 mb-12 text-right">
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2">البريد الإلكتروني</label>
+                    <input type="email" required
+                        class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition"
+                        placeholder="example@email.com">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2">رسالتك</label>
+                    <textarea required rows="5"
+                        class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition resize-none"
+                        placeholder="اكتب رسالتك هنا..."></textarea>
+                </div>
+                <button type="submit" class="glow-btn w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl font-medium hover:opacity-90">
+                    إرسال الرسالة
+                </button>
+            </form>
+
+            <!-- أيقونات التواصل -->
+            <div class="flex justify-center gap-8">
+                <a href="#" class="group">
+                    <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center border border-gray-700 group-hover:border-purple-500 transition">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <span class="text-sm text-gray-400 mt-2 block">GitHub</span>
+                </a>
+                <a href="#" class="group">
+                    <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center border border-gray-700 group-hover:border-blue-500 transition">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </div>
+                    <span class="text-sm text-gray-400 mt-2 block">LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Footer - التذييل -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <footer class="py-8 px-6 border-t border-gray-800 text-center">
+        <p class="text-gray-500 text-sm">
+            صُنع بـ ❤️ | جميع الحقوق محفوظة © 2025
+        </p>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- JavaScript -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <script>
+        // تأثير الظهور عند التمرير
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // معالجة نموذج الاتصال
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لتواصلك! سأرد عليك في أقرب وقت ممكن.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
