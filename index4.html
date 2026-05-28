@@ -1,5 +1,10 @@
 <html>
-  <?php
-  header('location : http://www.github.com);
-  ?>
+<body>
+<?php
+/* This will give an error. Note the output
+ * above, which is before the header() call */
+header('Location: http://www.github.com/');
+exit;
+?>
+</body>
 </html>
